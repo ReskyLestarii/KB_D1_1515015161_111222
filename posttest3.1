@@ -1,0 +1,19 @@
+predicates
+  likes(symbol,symbol) - nondeterm (i,o)
+  feels(symbol,symbol) - nondeterm (i,i)
+  cake(symbol) - nondeterm (o)
+
+clauses
+  likes(kyky,A):-
+	cake(A),
+	feels(A,yummy).
+
+  feels(sosis,yummy).
+  feels(mie,bad).
+
+  cake(mie).
+  cake(sosis).
+
+goal
+  likes(kyky,What).
+	
