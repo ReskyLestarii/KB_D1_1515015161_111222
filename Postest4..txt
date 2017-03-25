@@ -1,0 +1,36 @@
+PREDICATES   
+beli_mobil(symbol,symbol)
+nondeterm mobil(symbol,symbol,integer)   
+warna(symbol,symbol) 
+ 
+CLAUSES 
+  beli_mobil(Model,Warna):- 
+ 	mobil(Model,Warna,Harga),  	
+	warna(Warna,seksi),!,  	
+	Harga > 25000. 
+ 
+  mobil(maserati,hijau,25000).   
+  mobil(corvette,hitam,24000).   
+  mobil(corvette,merah,26000).   
+  mobil(porsche,merah,24000). 
+ 
+  warna(merah,seksi).   
+  warna(hitam,wibawa).   
+  warna(hijau,sejuk). 
+ 
+GOAL 
+  beli_mobil(corvette, Y).
+
+Penjelasan :
+1. Program mencari Mobil Model dan Warna.
+2. Mobil harus memiliki Model, Warna dan Harga.
+   Warna Mobil dalam kategori seksi, yaitu kategori seksi adalah warna merah,
+   dan aturan harga > 25000 tidak terbaca karna ada perintah not.
+3. mobil(maserati,hijau,25000).   
+  -Mobil ini memenuhi karna memiliki Model,Warna dan Harga yang sesuai tetapi warna hijau tidak termasuk dalam kategori seksi.
+   mobil(corvette,hitam,24000).
+  -Mobil ini memenuhi karna memiliki Model,Warna dan Harga yang sesuai tetapi warna hitam  tidak termasuk dalam kategori seksi.
+   mobil(corvette,merah,26000).
+  -Mobil ini memenuhi karna memiliki Model,Warna dan Harga yang sesuai yaitu model corvette, merah dan 26000 memenuhi kategori seksi yang di cari.
+   Rules ketiga tidak dijalankan karna ada fungsi not dan berhenti sampai rules kedua saja.
+4. Semua rules terpenuhi maka program akan berhenti dan menampilkan goal dari program : beli_mobil(corvette, Y). 
